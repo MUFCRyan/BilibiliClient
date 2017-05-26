@@ -1,4 +1,4 @@
-package com.ryan.bilibili_client.module;
+package com.ryan.bilibili_client.module.common;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -2,6 +2,19 @@
 <manifest package="com.ryan.bilibili_client"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="false"
+        android:resizeable="true"
+        android:smallScreens="true"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
     <application
         android:name=".BilibiliApp"
         android:allowBackup="true"
@@ -10,16 +23,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.MainActivity">
+        <activity android:name=".module.common.MainActivity">
         </activity>
-        <activity android:name=".module.SplashActivity">
+        <activity android:name=".module.common.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".module.LoginActivity">
+        <activity android:name=".module.common.LoginActivity">
+        </activity>
+        <activity android:name=".module.search.TotalStationSearchActivity">
+        </activity>
+        <activity android:name=".module.entry.GameCenterActivity">
+        </activity>
+        <activity android:name=".module.entry.OfflineDownloadActivity">
+        </activity>
+        <activity android:name=".module.common.RyanInfoActivity">
+        </activity>
+        <activity android:name=".module.common.AppIntroduceActivity">
+        </activity>
+        <activity android:name=".module.entry.VIPActivity">
         </activity>
     </application>
 

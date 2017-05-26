@@ -27,7 +27,7 @@
         android:orientation="horizontal"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-        <com.hotbitmapgg.bilibili.widget.CircleImageView
+        <com.ryan.bilibili_client.widget.CircleImageView
             android:id="@+id/user_avatar_view"
             android:layout_width="@dimen/navigation_avatar_size"
             android:layout_height="@dimen/navigation_avatar_size"
@@ -43,7 +43,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/default_grow_margin"
             android:layout_marginEnd="@dimen/default_grow_margin"
             android:layout_marginTop="@dimen/default_grow_margin"
             android:orientation="horizontal">
@@ -59,6 +61,7 @@
                 android:id="@+id/iv_head_switch_mode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_grow_margin"
                 android:layout_marginStart="@dimen/default_grow_margin"
                 android:src="@drawable/ic_switch_night" />
 
@@ -72,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_avatar_view"
             android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/default_general_margin"
             android:layout_marginStart="@dimen/default_general_margin"
             android:background="?attr/selectableItemBackground"
             android:orientation="vertical"
@@ -89,13 +93,14 @@
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/hotbitmapgg"
+                    android:text="@string/MUFCRyan"
                     android:textColor="@color/white"
                     android:textSize="@dimen/default_small_text_size" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_tiny_margin"
                     android:layout_marginStart="@dimen/default_tiny_margin"
                     android:background="@drawable/white_border"
                     android:text="@string/level_text"
