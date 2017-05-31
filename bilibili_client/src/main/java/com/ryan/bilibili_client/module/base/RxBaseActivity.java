@@ -55,9 +55,9 @@ public abstract class RxBaseActivity extends RxAppCompatActivity implements Card
 
     @Override
     public void onConfirm(int currentTheme) {
-        if (ThemeHelper.getTheme(this) != currentTheme){
-            ThemeHelper.setTheme(this, currentTheme);
-            ThemeUtils.refreshUI(this, new ThemeUtils.ExtraRefreshable() {
+        if (ThemeHelper.getTheme(RxBaseActivity.this) != currentTheme){
+            ThemeHelper.setTheme(RxBaseActivity.this, currentTheme);
+            ThemeUtils.refreshUI(RxBaseActivity.this, new ThemeUtils.ExtraRefreshable() {
                 @Override
                 public void refreshGlobal(Activity activity) {
                     RxBaseActivity context = RxBaseActivity.this;

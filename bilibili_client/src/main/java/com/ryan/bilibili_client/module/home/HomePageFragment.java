@@ -60,7 +60,7 @@ public class HomePageFragment extends RxLazyFragment {
     @Override
     public void finishCreatedView(Bundle saveInstanceState) {
         setHasOptionsMenu(true);
-        //initToolBar();
+        initToolBar();
         initSearchView();
         initViewPager();
     }
