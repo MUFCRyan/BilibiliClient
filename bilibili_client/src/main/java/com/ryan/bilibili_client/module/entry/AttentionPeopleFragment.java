@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.ryan.bilibili_client.R;
-import com.ryan.bilibili_client.module.base.RxLazyFragment;
+import com.ryan.bilibili_client.base.RxLazyFragment;
 import com.ryan.bilibili_client.module.common.MainActivity;
 import com.ryan.bilibili_client.widget.CustomEmptyView;
 

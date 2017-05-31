@@ -161,4 +161,7 @@
     <string name="about_tag">标签相关</string>
     <string name="tag_edit">编辑</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

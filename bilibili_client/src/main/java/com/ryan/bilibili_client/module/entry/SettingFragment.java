@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.ryan.bilibili_client.R;
-import com.ryan.bilibili_client.module.base.RxLazyFragment;
+import com.ryan.bilibili_client.base.RxLazyFragment;
 import com.ryan.bilibili_client.module.common.AppIntroduceActivity;
 import com.ryan.bilibili_client.module.common.LoginActivity;
 import com.ryan.bilibili_client.module.common.MainActivity;

@@ -6,6 +6,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.ryan.bilibili_client.R;
+import com.ryan.bilibili_client.module.home.attention.HomeAttentionFragment;
+import com.ryan.bilibili_client.module.home.bangumi.HomeBangumiFragment;
+import com.ryan.bilibili_client.module.home.discover.HomeDiscoverFragment;
+import com.ryan.bilibili_client.module.home.live.HomeLiveFragment;
+import com.ryan.bilibili_client.module.home.recommended.HomeRecommendedFragment;
+import com.ryan.bilibili_client.module.home.region.HomeRegionFragment;
 
 /**
  * Created by MUFCRyan on 2017/5/26.
@@ -23,10 +29,32 @@ public class HomePageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (mFragments[0] == null){
+        if (mFragments[position] == null){
+            switch (position){
+                case 0:
+                    mFragments[position] = HomeLiveFragment.newInstance();
+                    break;
+                case 1:
+                    mFragments[position] = HomeRecommendedFragment.newInstance();
+                    break;
+                case 2:
+                    mFragments[position] = HomeBangumiFragment.newInstance();
+                    break;
+                case 3:
+                    mFragments[position] = HomeRegionFragment.newInstance();
+                    break;
+                case 4:
+                    mFragments[position] = HomeAttentionFragment.newInstance();
+                    break;
+                case 5:
+                    mFragments[position] = HomeDiscoverFragment.newInstance();
+                    break;
+                default:
+                    break;
 
+            }
         }
-        return null;
+        return mFragments[position];
     }
 
     @Override

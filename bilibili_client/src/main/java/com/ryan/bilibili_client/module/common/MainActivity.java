@@ -16,7 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ryan.bilibili_client.R;
-import com.ryan.bilibili_client.module.base.RxBaseActivity;
+import com.ryan.bilibili_client.base.RxBaseActivity;
 import com.ryan.bilibili_client.module.entry.AttentionPeopleFragment;
 import com.ryan.bilibili_client.module.entry.ConsumeHistoryFragment;
 import com.ryan.bilibili_client.module.entry.HistoryFragment;

@@ -16,23 +16,24 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
-        android:name="com.ryan.bilibili_client.BilibiliApp"
+        android:name=".BilibiliApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.ryan.bilibili_client.module.common.MainActivity"
-                  android:launchMode="singleTask"
-                  android:screenOrientation="portrait"
-                  android:theme="@style/MainActivityColorTranslucentTheme"
-                  android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
-        </activity>
-        <activity android:name="com.ryan.bilibili_client.module.common.SplashActivity"
-            android:theme="@style/ColorTranslucentTheme"
+        <activity
+            android:name=".module.common.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            >
+            android:theme="@style/MainActivityColorTranslucentTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.common.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ColorTranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -52,6 +53,10 @@
         <activity android:name=".module.common.AppIntroduceActivity">
         </activity>
         <activity android:name=".module.entry.VIPActivity">
+        </activity>
+        <activity android:name=".module.home.live.LivePlayerActivity">
+        </activity>
+        <activity android:name=".module.user.UserInfoDetailsActivity">
         </activity>
     </application>
 

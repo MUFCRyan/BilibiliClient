@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.ryan.bilibili_client.R;
-import com.ryan.bilibili_client.module.base.RxBaseActivity;
+import com.ryan.bilibili_client.base.RxBaseActivity;
 import com.ryan.bilibili_client.utils.CommonUtil;
 import com.ryan.bilibili_client.utils.ConstantUtil;
 import com.ryan.bilibili_client.utils.PreferenceUtil;

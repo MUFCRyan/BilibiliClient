@@ -1,4 +1,4 @@
-package com.ryan.bilibili_client.module.base;
+package com.ryan.bilibili_client.base;
 
 import android.app.Activity;
 import android.app.ActivityManager;
