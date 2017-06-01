@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Created by MUFCRyan on 2017/5/31.
@@ -112,7 +113,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
                 }
 
                 if (section.hasFooter()){
-                    if (position == currentPosition){
+                    if (position == (currentPosition + sectionTotal - 1)){
                         // Delegate the binding to the section footer
                         getSectionForPosition(position).onBindFooterViewHolder(holder);
                         return;
@@ -123,7 +124,9 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
                 getSectionForPosition(position).onBindContentViewHolder(holder, getSectionPosition(position));
                 return;
             }
+            currentPosition += sectionTotal;
         }
+        throw new IndexOutOfBoundsException("Invalid position");
     }
 
     @Override
@@ -192,6 +195,62 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
         int viewType = getItemViewType(position);
         return viewType % VIEW_TYPE_QTY;
     }
+
+    /**
+     * Add a section to this RecyclerView with a random tag
+     * @param section section to be added
+     * @return generated tag
+     */
+    public String addSection(Section section){
+        String tag = UUID.randomUUID().toString();
+        addSection(tag, section);
+        return tag;
+    }
+
+    /**
+     * Add a section to this RecyclerView
+     * @param tag Unique identifier of the section
+     * @param section section to be added
+     */
+    public void addSection(String tag, Section section){
+        this.mSections.put(tag, section);
+        this.mSectionViewTypeNums.put(tag, mViewTypeCount);
+        mViewTypeCount += VIEW_TYPE_QTY;
+    }
+
+    /**
+     * Return the section with the tag provided
+     *
+     * @param tag unique identifier of the section
+     * @return section
+     */
+    public Section getSection(String tag) {
+
+        return this.mSections.get(tag);
+    }
+
+    /**
+     * Remove section from this recyclerview.
+     *
+     * @param tag unique identifier of the section
+     */
+    public void removeSection(String tag) {
+        this.mSections.remove(tag);
+    }
+
+    /** Remove all sections from this recyclerview. */
+    public void removeAllSections() {
+        this.mSections.clear();
+    }
+
+    /**
+     * Return a map with all sections of this adapter
+     * @return a map with all sections
+     */
+    public LinkedHashMap<String, Section> getSectionsMap() {
+        return mSections;
+    }
+
 
     /**
      * Returns the Section object for a position in the adapter

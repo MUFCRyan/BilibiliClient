@@ -58,6 +58,16 @@
         </activity>
         <activity android:name=".module.user.UserInfoDetailsActivity">
         </activity>
+        <activity android:name=".module.video.VideoDetailsActivity">
+        </activity>
+        <activity android:name=".module.video.VideoPlayerActivity">
+        </activity>
+        <activity android:name=".module.home.discover.OriginalRankActivity">
+        </activity>
+        <activity android:name=".module.home.bangumi.BangumiIndexActivity">
+        </activity>
+        <activity android:name=".module.home.bangumi.BangumiScheduleActivity">
+        </activity>
     </application>
 
 </manifest>
