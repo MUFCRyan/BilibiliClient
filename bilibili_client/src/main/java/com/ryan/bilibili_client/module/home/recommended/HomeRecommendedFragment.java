@@ -6,7 +6,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-
 import com.ryan.bilibili_client.R;
 import com.ryan.bilibili_client.adapter.section.HomeRecommendPicSection;
 import com.ryan.bilibili_client.adapter.section.HomeRecommendedSection;
@@ -22,16 +21,13 @@ import com.ryan.bilibili_client.utils.SnackbarUtil;
 import com.ryan.bilibili_client.widget.CustomEmptyView;
 import com.ryan.bilibili_client.widget.banner.BannerEntity;
 import com.ryan.bilibili_client.widget.sectioned.SectionedRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
-
 import static com.ryan.bilibili_client.widget.sectioned.SectionedRecyclerViewAdapter.VIEW_TYPE_FOOTER;
 import static com.ryan.bilibili_client.widget.sectioned.SectionedRecyclerViewAdapter.VIEW_TYPE_HEADER;
 

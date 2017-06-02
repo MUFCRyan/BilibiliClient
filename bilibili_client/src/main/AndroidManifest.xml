@@ -42,6 +42,9 @@
         </activity>
         <activity android:name=".module.common.LoginActivity">
         </activity>
+        <activity android:name=".module.common.BrowserActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".module.search.TotalStationSearchActivity">
         </activity>
         <activity android:name=".module.entry.GameCenterActivity">

@@ -21,14 +21,12 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 import com.ryan.bilibili_client.R;
 import com.ryan.bilibili_client.base.RxBaseActivity;
 import com.ryan.bilibili_client.utils.ClipboardUtil;
 import com.ryan.bilibili_client.utils.ConstantUtil;
 import com.ryan.bilibili_client.utils.ToastUtil;
 import com.ryan.bilibili_client.widget.CircleProgressView;
-
 import butterknife.BindView;
 
 /**
