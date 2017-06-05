@@ -26,7 +26,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
 
     private LinkedHashMap<String, Section> mSections;
     private HashMap<String, Integer> mSectionViewTypeNums;
-    private int mViewTypeCount;
+    private int mViewTypeCount = 0;
 
     public SectionedRecyclerViewAdapter(){
         mSections = new LinkedHashMap<>();
@@ -40,7 +40,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
         for (Map.Entry<String, Integer> entry : mSectionViewTypeNums.entrySet()) {
             if (viewType >= entry.getValue() && viewType < entry.getValue() + VIEW_TYPE_QTY){
                 Section section = mSections.get(entry.getKey());
-                int sectionViewType = viewType - entry.getValue();
+                int sectionViewType = viewType - entry.getValue(); // 减去累加的 VIEW_TYPE_QTY 得到真正的 viewType
                 switch(sectionViewType){
                     case VIEW_TYPE_HEADER: {
                         Integer resId = section.getHeaderResourceId();
@@ -154,6 +154,8 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
             // check if position is in this section
             if (position >= currentPosition && position <= (currentPosition + sectionTotal - 1)) {
                 Integer viewType = mSectionViewTypeNums.get(entry.getKey());
+
+                // --------------------------- 累加真正的ItemViewType ---------------------------------
                 if (section.hasHeader()) {
                     if (position == currentPosition)
                         return viewType;
@@ -173,6 +175,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
                     default :
                         throw new IllegalArgumentException("Invalid state");
                 }
+                // -----------------------------------------------------------------------------------
             }
             currentPosition += sectionTotal;
         }
@@ -193,7 +196,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
      */
     public int getSectionItemViewType(int position){
         int viewType = getItemViewType(position);
-        return viewType % VIEW_TYPE_QTY;
+        return viewType % VIEW_TYPE_QTY; /** 通过求余去掉 viewType 中之前累加的 VIEW_TYPE_QTY 得到真正的 itemViewType */
     }
 
     /**
@@ -213,6 +216,8 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
      * @param section section to be added
      */
     public void addSection(String tag, Section section){
+        /** 两个集合的 key 皆为 tag，故可 听过其中一个集合的 key 得到另一个集合的 value */
+        /** 使 mSectionViewTypeNum 存入多个同类型的 item，其每个 value 不一样， 方式是为 tag 即 itemViewType 累加 VIEW_TYPE_QTY，这样累加后的值皆为 VIEW_TYPE_QTY 的倍数，此处的 VIEW_TYPE_QTY 大于个 VIEW_TYPE 的值是为了防止求余时影响到实际的 VIEW_TYPE */
         this.mSections.put(tag, section);
         this.mSectionViewTypeNums.put(tag, mViewTypeCount);
         mViewTypeCount += VIEW_TYPE_QTY;
@@ -302,9 +307,7 @@ public class SectionedRecyclerViewAdapter extends RecyclerView.Adapter {
      * scenarios.
      */
     public static class EmptyViewHolder extends RecyclerView.ViewHolder {
-
         public EmptyViewHolder(View itemView) {
-
             super(itemView);
         }
     }

@@ -12,10 +12,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
             android:drawablePadding="@dimen/default_general_margin"
             android:gravity="center"
+            android:drawableLeft="@drawable/ic_tuijian"
             android:drawableStart="@drawable/ic_tuijian"
             android:padding="@dimen/default_general_margin"
             android:text="@string/bangumi_recommend"

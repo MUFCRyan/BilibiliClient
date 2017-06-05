@@ -52,6 +52,10 @@ public abstract class StatelessSection extends Section {
   }
 
 
+  /**
+   * 通过关键字 final 限制子类，不允许子类实现加载状态相关的逻辑
+   * @param holder ViewHolder for the Loading state of this Section
+   */
   @Override
   public final void onBindLoadingViewHolder(RecyclerView.ViewHolder holder) {
 

@@ -99,6 +99,7 @@ public class HomeRecommendedFragment extends RxLazyFragment {
             @Override
             public int getSpanSize(int position) {
                 switch(mSectionedAdapter.getSectionItemViewType(position)){
+                    // 每个 Header 和 Footer 的跨度都是两个普通的 item，即跨越两列
                     case VIEW_TYPE_HEADER:
                     case VIEW_TYPE_FOOTER:
                         return 2;

@@ -8,6 +8,7 @@ import android.view.View;
  * 100332338@qq.com
  * <p/>
  * Abstract Section used by SectionedRecyclerViewAdapter.
+ * !!IMPORTANT
  */
 public abstract class Section {
 

@@ -42,7 +42,8 @@
         </activity>
         <activity android:name=".module.common.LoginActivity">
         </activity>
-        <activity android:name=".module.common.BrowserActivity"
+        <activity
+            android:name=".module.common.BrowserActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".module.search.TotalStationSearchActivity">
@@ -70,6 +71,14 @@
         <activity android:name=".module.home.bangumi.BangumiIndexActivity">
         </activity>
         <activity android:name=".module.home.bangumi.BangumiScheduleActivity">
+        </activity>
+        <activity android:name=".module.home.bangumi.ChaseBangumiActivity">
+        </activity>
+        <activity android:name=".module.home.bangumi.NewSerialBangumiActivity">
+        </activity>
+        <activity android:name=".module.home.bangumi.BangumiDetailsActivity">
+        </activity>
+        <activity android:name=".module.home.bangumi.SeasonNewBangumiActivity">
         </activity>
     </application>
 

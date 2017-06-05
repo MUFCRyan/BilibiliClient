@@ -53,14 +53,14 @@ public class ToastUtil {
   }
 
 
-  public static void ShortToast(final String text) {
+  public static void shortToast(final String text) {
 
     new Handler(Looper.getMainLooper()).post(() -> Toast.
         makeText(BilibiliApp.getInstance(), text, Toast.LENGTH_SHORT).show());
   }
 
 
-  public static void ShortToast(final int stringId) {
+  public static void shortToast(final int stringId) {
 
     new Handler(Looper.getMainLooper()).post(() -> Toast.
         makeText(BilibiliApp.getInstance(), stringId, Toast.LENGTH_SHORT).show());

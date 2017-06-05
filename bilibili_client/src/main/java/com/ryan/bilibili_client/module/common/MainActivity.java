@@ -202,7 +202,7 @@ public class MainActivity extends RxBaseActivity implements NavigationView.OnNav
 
     private void exitApp() {
         if (System.currentTimeMillis() - mExitTime > 2000) {
-            ToastUtil.ShortToast("再按一次退出");
+            ToastUtil.shortToast("再按一次退出");
             mExitTime = System.currentTimeMillis();
         } else {
             PreferenceUtil.remove(ConstantUtil.SWITCH_MODE_KEY);
