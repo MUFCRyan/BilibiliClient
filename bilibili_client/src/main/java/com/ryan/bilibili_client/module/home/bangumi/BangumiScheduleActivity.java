@@ -9,10 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.ryan.bilibili_client.R;
+import com.ryan.bilibili_client.adapter.section.BangumiScheduleSection;
 import com.ryan.bilibili_client.base.RxBaseActivity;
 import com.ryan.bilibili_client.entity.bangumi.BangumiScheduleInfo;
 import com.ryan.bilibili_client.network.RetrofitHelper;
+import com.ryan.bilibili_client.utils.ConstantUtil;
 import com.ryan.bilibili_client.utils.ToastUtil;
+import com.ryan.bilibili_client.utils.WeekDayUtil;
 import com.ryan.bilibili_client.widget.CircleProgressView;
 import com.ryan.bilibili_client.widget.sectioned.SectionedRecyclerViewAdapter;
 
@@ -24,6 +27,15 @@ import butterknife.BindView;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+
+import static com.ryan.bilibili_client.utils.ConstantUtil.FRIDAY_TYEP;
+import static com.ryan.bilibili_client.utils.ConstantUtil.MONDAY_TYPE;
+import static com.ryan.bilibili_client.utils.ConstantUtil.SATURDAY_TYPE;
+import static com.ryan.bilibili_client.utils.ConstantUtil.SUNDAY_TYPE;
+import static com.ryan.bilibili_client.utils.ConstantUtil.THURSDAY_TYPE;
+import static com.ryan.bilibili_client.utils.ConstantUtil.TUESDAY_TYPE;
+import static com.ryan.bilibili_client.utils.ConstantUtil.WEDNESDAY_TYPE;
+import static com.ryan.bilibili_client.utils.WeekDayUtil.getWeek;
 
 public class BangumiScheduleActivity extends RxBaseActivity {
     @BindView(R.id.toolbar)
@@ -107,11 +119,41 @@ public class BangumiScheduleActivity extends RxBaseActivity {
         Observable.from(mBangumiSchedules)
                 .compose(bindToLifecycle())
                 .forEach(this::accordingWeekGroup);
-        //mSectionedRecyclerViewAdapter.addSection();
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, sundayBangumis, SUNDAY_TYPE, WeekDayUtil.formatDate(sundayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, mondayBangumis, ConstantUtil.MONDAY_TYPE, WeekDayUtil.formatDate(mondayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, tuesdayBangumis, ConstantUtil.TUESDAY_TYPE, WeekDayUtil.formatDate(tuesdayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, wednesdayBangumis, ConstantUtil.WEDNESDAY_TYPE, WeekDayUtil.formatDate(wednesdayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, thursdayBangumis, ConstantUtil.THURSDAY_TYPE, WeekDayUtil.formatDate(thursdayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, fridayBangumis, ConstantUtil.FRIDAY_TYEP, WeekDayUtil.formatDate(fridayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.addSection(new BangumiScheduleSection(this, saturdayBangumis, ConstantUtil.SATURDAY_TYPE, WeekDayUtil.formatDate(saturdayBangumis.get(0).getPub_date())));
+        mSectionedRecyclerViewAdapter.notifyDataSetChanged();
+        hideProgressBar();
     }
 
     private void accordingWeekGroup(BangumiScheduleInfo.ResultBean resultBean) {
-
+        switch(getWeek(resultBean.getPub_date())){
+            case SUNDAY_TYPE:
+                sundayBangumis.add(resultBean);
+                break;
+            case MONDAY_TYPE:
+                mondayBangumis.add(resultBean);
+                break;
+            case TUESDAY_TYPE:
+                tuesdayBangumis.add(resultBean);
+                break;
+            case WEDNESDAY_TYPE:
+                wednesdayBangumis.add(resultBean);
+                break;
+            case THURSDAY_TYPE:
+                thursdayBangumis.add(resultBean);
+                break;
+            case FRIDAY_TYEP:
+                fridayBangumis.add(resultBean);
+                break;
+            case SATURDAY_TYPE:
+                saturdayBangumis.add(resultBean);
+                break;
+        }
     }
 
     @Override
