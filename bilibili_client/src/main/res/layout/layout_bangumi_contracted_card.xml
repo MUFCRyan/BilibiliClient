@@ -20,6 +20,7 @@
                 android:id="@+id/ic_pay_bangumi_tips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:padding="@dimen/default_general_margin"
                 android:src="@drawable/ic_pay_bangumi_tips" />
@@ -30,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/default_grow_margin"
+                android:layout_toRightOf="@+id/ic_pay_bangumi_tips"
                 android:layout_toEndOf="@+id/ic_pay_bangumi_tips"
                 android:paddingTop="@dimen/default_tiny_padding"
                 android:text="@string/please_contract_me"
@@ -40,6 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_pay"
+                android:layout_toRightOf="@+id/ic_pay_bangumi_tips"
                 android:layout_toEndOf="@+id/ic_pay_bangumi_tips"
                 android:text="@string/have_been_contracting_out_of_me"
                 android:textColor="@color/yellow_30"
@@ -49,7 +52,9 @@
             <TextView
                 android:layout_width="@dimen/video_details_text_width"
                 android:layout_height="@dimen/video_details_text_height"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/default_general_margin"
                 android:layout_marginEnd="@dimen/default_general_margin"
                 android:layout_marginTop="@dimen/default_grow_margin"
                 android:background="@drawable/yellow_btn_bg"
@@ -73,11 +78,14 @@
                 android:layout_width="@dimen/bangumi_details_user_avatar_layout_width"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginBottom="@dimen/default_general_margin"
-                android:layout_marginStart="@dimen/default_general_margin">
+                android:layout_marginLeft="@dimen/default_general_margin"
+                android:layout_marginStart="@dimen/default_general_margin"
+                >
 
-                <com.hotbitmapgg.bilibili.widget.CircleImageView
+                <com.ryan.bilibili_client.widget.CircleImageView
                     android:layout_width="@dimen/bangumi_details_user_avatar_size"
                     android:layout_height="@dimen/bangumi_details_user_avatar_size"
                     android:layout_gravity="center|start"
@@ -86,28 +94,31 @@
                     app:border_width="@dimen/circle_default_width" />
 
 
-                <com.hotbitmapgg.bilibili.widget.CircleImageView
+                <com.ryan.bilibili_client.widget.CircleImageView
                     android:layout_width="@dimen/bangumi_details_user_avatar_size"
                     android:layout_height="@dimen/bangumi_details_user_avatar_size"
                     android:layout_gravity="center|start"
+                    android:layout_marginLeft="@dimen/bangumi_details_user_avatar_margin_1"
                     android:layout_marginStart="@dimen/bangumi_details_user_avatar_margin_1"
                     android:src="@drawable/ic_avatar2"
                     app:border_color="@color/white"
                     app:border_width="@dimen/circle_default_width" />
 
-                <com.hotbitmapgg.bilibili.widget.CircleImageView
+                <com.ryan.bilibili_client.widget.CircleImageView
                     android:layout_width="@dimen/bangumi_details_user_avatar_size"
                     android:layout_height="@dimen/bangumi_details_user_avatar_size"
                     android:layout_gravity="center|start"
+                    android:layout_marginLeft="@dimen/bangumi_details_user_avatar_margin_2"
                     android:layout_marginStart="@dimen/bangumi_details_user_avatar_margin_2"
                     android:src="@drawable/ic_avatar3"
                     app:border_color="@color/white"
                     app:border_width="@dimen/circle_default_width" />
 
-                <com.hotbitmapgg.bilibili.widget.CircleImageView
+                <com.ryan.bilibili_client.widget.CircleImageView
                     android:layout_width="@dimen/bangumi_details_user_avatar_size"
                     android:layout_height="@dimen/bangumi_details_user_avatar_size"
                     android:layout_gravity="center|start"
+                    android:layout_marginLeft="@dimen/bangumi_details_user_avatar_margin_3"
                     android:layout_marginStart="@dimen/bangumi_details_user_avatar_margin_3"
                     android:src="@drawable/ic_avatar4"
                     app:border_color="@color/white"
@@ -121,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/default_tiny_padding"
+                android:layout_toRightOf="@+id/user_avatar_layout"
                 android:layout_toEndOf="@+id/user_avatar_layout"
                 android:paddingBottom="@dimen/default_general_margin"
                 android:paddingTop="@dimen/default_general_margin"
@@ -133,6 +145,7 @@
                 android:layout_width="@dimen/video_details_text_width"
                 android:layout_height="@dimen/bangumi_details_look_btn_height"
                 android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="@dimen/default_general_margin"
                 android:background="@drawable/btn_black_bg"
