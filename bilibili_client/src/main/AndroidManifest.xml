@@ -80,6 +80,12 @@
         </activity>
         <activity android:name=".module.home.bangumi.SeasonNewBangumiActivity">
         </activity>
+        <activity android:name=".module.home.region.RegionTypeDetailsActivity">
+        </activity>
+        <activity android:name=".module.home.region.LiveAppIndexActivity">
+        </activity>
+        <activity android:name=".module.home.region.AdvertisingActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.ryan.bilibili_client.adapter;
+package com.ryan.bilibili_client.adapter.pager;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

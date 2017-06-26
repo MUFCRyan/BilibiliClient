@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.ryan.bilibili_client.R;
-import com.ryan.bilibili_client.adapter.HomePageAdapter;
+import com.ryan.bilibili_client.adapter.pager.HomePageAdapter;
 import com.ryan.bilibili_client.base.RxLazyFragment;
 import com.ryan.bilibili_client.module.common.MainActivity;
 import com.ryan.bilibili_client.module.entry.GameCenterActivity;
