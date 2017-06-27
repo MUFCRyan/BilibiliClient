@@ -108,7 +108,7 @@ public class OriginalRankFragment extends RxLazyFragment {
 
           mSwipeRefreshLayout.setRefreshing(false);
           LogUtil.all(throwable.getMessage());
-          ToastUtil.ShortToast("加载失败啦,请重新加载~");
+          ToastUtil.shortToast("加载失败啦,请重新加载~");
         });
   }
 

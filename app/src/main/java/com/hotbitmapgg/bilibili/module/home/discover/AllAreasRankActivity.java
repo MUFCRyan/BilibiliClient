@@ -25,7 +25,7 @@ import butterknife.BindView;
  * <p/>
  * 全区排行榜界面
  */
-public class AllareasRankActivity extends RxBaseActivity {
+public class AllAreasRankActivity extends RxBaseActivity {
 
   @BindView(R.id.sliding_tabs)
   SlidingTabLayout mSlidingTabLayout;
@@ -66,8 +66,8 @@ public class AllareasRankActivity extends RxBaseActivity {
       position = intent.getIntExtra(ConstantUtil.EXTRA_POSITION, 0);
     }
 
-    AllareasRankPagerAdapter mAdapter =
-        new AllareasRankPagerAdapter(getSupportFragmentManager(), titles, types);
+    AllAreasRankPagerAdapter mAdapter =
+        new AllAreasRankPagerAdapter(getSupportFragmentManager(), titles, types);
     mViewPager.setAdapter(mAdapter);
     mSlidingTabLayout.setViewPager(mViewPager);
     switchPager();
@@ -149,20 +149,20 @@ public class AllareasRankActivity extends RxBaseActivity {
 
   public static void launch(Activity activity, int position) {
 
-    Intent intent = new Intent(activity, AllareasRankActivity.class);
+    Intent intent = new Intent(activity, AllAreasRankActivity.class);
     intent.putExtra(ConstantUtil.EXTRA_POSITION, position);
     activity.startActivity(intent);
   }
 
 
-  private static class AllareasRankPagerAdapter extends FragmentStatePagerAdapter {
+  private static class AllAreasRankPagerAdapter extends FragmentStatePagerAdapter {
 
     private String[] titles;
 
     private String[] types;
 
 
-    AllareasRankPagerAdapter(FragmentManager fm, String[] titles, String[] types) {
+    AllAreasRankPagerAdapter(FragmentManager fm, String[] titles, String[] types) {
 
       super(fm);
       this.titles = titles;
@@ -173,7 +173,7 @@ public class AllareasRankActivity extends RxBaseActivity {
     @Override
     public Fragment getItem(int position) {
 
-      return AllareasRankFragment
+      return AllAreasRankFragment
           .newInstance(types[position]);
     }
 

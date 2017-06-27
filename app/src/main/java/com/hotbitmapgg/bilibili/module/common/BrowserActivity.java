@@ -115,7 +115,7 @@ public class BrowserActivity extends RxBaseActivity {
 
       case R.id.menu_copy:
         ClipboardUtil.setText(BrowserActivity.this, url);
-        ToastUtil.ShortToast("已复制");
+        ToastUtil.shortToast("已复制");
         break;
     }
     return super.onOptionsItemSelected(item);

@@ -1,7 +1,11 @@
 package com.hotbitmapgg.bilibili.module.home.discover;
 
-import butterknife.BindView;
-import com.hotbitmapgg.bilibili.adapter.AllareasRankAdapter;
+import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.hotbitmapgg.bilibili.adapter.AllAreasRankAdapter;
 import com.hotbitmapgg.bilibili.base.RxLazyFragment;
 import com.hotbitmapgg.bilibili.entity.discover.AllareasRankInfo;
 import com.hotbitmapgg.bilibili.module.video.VideoDetailsActivity;
@@ -9,15 +13,13 @@ import com.hotbitmapgg.bilibili.network.RetrofitHelper;
 import com.hotbitmapgg.bilibili.utils.ConstantUtil;
 import com.hotbitmapgg.bilibili.utils.ToastUtil;
 import com.hotbitmapgg.ohmybilibili.R;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
-import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 /**
  * Created by hcc on 16/8/11 20:23
@@ -25,7 +27,7 @@ import android.support.v7.widget.RecyclerView;
  * <p/>
  * 全区排行榜界面
  */
-public class AllareasRankFragment extends RxLazyFragment {
+public class AllAreasRankFragment extends RxLazyFragment {
 
   @BindView(R.id.recycle)
   RecyclerView mRecyclerView;
@@ -37,12 +39,12 @@ public class AllareasRankFragment extends RxLazyFragment {
 
   private List<AllareasRankInfo.RankBean.ListBean> allRanks = new ArrayList<>();
 
-  private AllareasRankAdapter mAdapter;
+  private AllAreasRankAdapter mAdapter;
 
 
-  public static AllareasRankFragment newInstance(String type) {
+  public static AllAreasRankFragment newInstance(String type) {
 
-    AllareasRankFragment mFragment = new AllareasRankFragment();
+    AllAreasRankFragment mFragment = new AllAreasRankFragment();
     Bundle mBundle = new Bundle();
     mBundle.putString(ConstantUtil.EXTRA_KEY, type);
     mFragment.setArguments(mBundle);
@@ -94,7 +96,7 @@ public class AllareasRankFragment extends RxLazyFragment {
         }, throwable -> {
 
           mSwipeRefreshLayout.setRefreshing(false);
-          ToastUtil.ShortToast("加载失败啦,请重新加载~");
+          ToastUtil.shortToast("加载失败啦,请重新加载~");
         });
   }
 
@@ -114,7 +116,7 @@ public class AllareasRankFragment extends RxLazyFragment {
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setNestedScrollingEnabled(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-    mAdapter = new AllareasRankAdapter(mRecyclerView, allRanks);
+    mAdapter = new AllAreasRankAdapter(mRecyclerView, allRanks);
     mRecyclerView.setAdapter(mAdapter);
     mAdapter.setOnItemClickListener((position, holder) -> VideoDetailsActivity.launch(getActivity(),
         allRanks.get(position).getAid(),

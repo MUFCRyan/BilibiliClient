@@ -1,6 +1,10 @@
 package com.hotbitmapgg.bilibili.module.home.region;
 
-import butterknife.BindView;
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
 import com.hotbitmapgg.bilibili.adapter.section.RegionDetailsHotVideoSection;
 import com.hotbitmapgg.bilibili.adapter.section.RegionDetailsNewsVideoSection;
 import com.hotbitmapgg.bilibili.base.RxLazyFragment;
@@ -12,15 +16,13 @@ import com.hotbitmapgg.bilibili.utils.ToastUtil;
 import com.hotbitmapgg.bilibili.widget.CircleProgressView;
 import com.hotbitmapgg.bilibili.widget.sectioned.SectionedRecyclerViewAdapter;
 import com.hotbitmapgg.ohmybilibili.R;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 /**
  * Created by hcc on 16/8/4 21:18
@@ -126,7 +128,7 @@ public class RegionTypeDetailsFragment extends RxLazyFragment {
         }, throwable -> {
           LogUtil.all(throwable.getMessage());
           hideProgressBar();
-          ToastUtil.ShortToast("加载失败啦,请重新加载~");
+          ToastUtil.shortToast("加载失败啦,请重新加载~");
         });
   }
 

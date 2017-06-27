@@ -119,7 +119,7 @@ public class BangumiScheduleActivity extends RxBaseActivity {
         }, throwable -> {
 
           hideProgressBar();
-          ToastUtil.ShortToast("加载失败啦,请重新加载~");
+          ToastUtil.shortToast("加载失败啦,请重新加载~");
         });
   }
 

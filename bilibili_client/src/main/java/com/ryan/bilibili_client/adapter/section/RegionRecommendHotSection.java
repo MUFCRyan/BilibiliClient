@@ -1,4 +1,4 @@
-package com.hotbitmapgg.bilibili.adapter.section;
+package com.ryan.bilibili_client.adapter.section;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,13 +10,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.hotbitmapgg.bilibili.entity.region.RegionRecommendInfo;
-import com.hotbitmapgg.bilibili.module.home.discover.AllAreasRankActivity;
-import com.hotbitmapgg.bilibili.module.video.VideoDetailsActivity;
-import com.hotbitmapgg.bilibili.utils.ConstantUtil;
-import com.hotbitmapgg.bilibili.utils.NumberUtil;
-import com.hotbitmapgg.bilibili.widget.sectioned.StatelessSection;
-import com.hotbitmapgg.ohmybilibili.R;
+import com.ryan.bilibili_client.R;
+import com.ryan.bilibili_client.entity.region.RegionRecommendInfo;
+import com.ryan.bilibili_client.module.home.discover.AllAreasRankActivity;
+import com.ryan.bilibili_client.module.video.VideoDetailsActivity;
+import com.ryan.bilibili_client.utils.ConstantUtil;
+import com.ryan.bilibili_client.utils.NumberUtil;
+import com.ryan.bilibili_client.widget.sectioned.StatelessSection;
 
 import java.util.List;
 

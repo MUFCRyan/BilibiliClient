@@ -181,7 +181,7 @@ public class AdvertisingActivity extends RxBaseActivity {
         }, throwable -> {
           LogUtil.all(throwable.getMessage());
           mRefreshLayout.setRefreshing(false);
-          ToastUtil.ShortToast("加载失败啦,请重新加载~");
+          ToastUtil.shortToast("加载失败啦,请重新加载~");
         });
   }
 

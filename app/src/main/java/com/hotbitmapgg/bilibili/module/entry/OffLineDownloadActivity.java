@@ -94,7 +94,7 @@ public class OffLineDownloadActivity extends RxBaseActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
 
     if (item.getItemId() == R.id.menu_more) {
-      ToastUtil.ShortToast("离线设置");
+      ToastUtil.shortToast("离线设置");
     }
     return super.onOptionsItemSelected(item);
   }

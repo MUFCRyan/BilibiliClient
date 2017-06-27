@@ -114,7 +114,7 @@ public class LoginActivity extends RxBaseActivity {
 
     boolean isNetConnected = CommonUtil.isNetworkAvailable(this);
     if (!isNetConnected) {
-      ToastUtil.ShortToast("当前网络不可用,请检查网络设置");
+      ToastUtil.shortToast("当前网络不可用,请检查网络设置");
       return;
     }
     login();
@@ -139,12 +139,12 @@ public class LoginActivity extends RxBaseActivity {
     String password = et_password.getText().toString();
 
     if (TextUtils.isEmpty(name)) {
-      ToastUtil.ShortToast("用户名不能为空");
+      ToastUtil.shortToast("用户名不能为空");
       return;
     }
 
     if (TextUtils.isEmpty(password)) {
-      ToastUtil.ShortToast("密码不能为空");
+      ToastUtil.shortToast("密码不能为空");
       return;
     }
 

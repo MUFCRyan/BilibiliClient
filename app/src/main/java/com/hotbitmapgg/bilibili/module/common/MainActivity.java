@@ -285,7 +285,7 @@ public class MainActivity extends RxBaseActivity
   private void exitApp() {
 
     if (System.currentTimeMillis() - exitTime > 2000) {
-      ToastUtil.ShortToast("再按一次退出");
+      ToastUtil.shortToast("再按一次退出");
       exitTime = System.currentTimeMillis();
     } else {
       PreferenceUtil.remove(ConstantUtil.SWITCH_MODE_KEY);

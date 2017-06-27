@@ -153,7 +153,7 @@ public class ActivityCenterActivity extends RxBaseActivity {
           }
 
           loadMoreView.setVisibility(View.GONE);
-          ToastUtil.ShortToast("加载失败啦,请重新加载~");
+          ToastUtil.shortToast("加载失败啦,请重新加载~");
         });
   }
 

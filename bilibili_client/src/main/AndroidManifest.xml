@@ -86,6 +86,8 @@
         </activity>
         <activity android:name=".module.home.region.AdvertisingActivity">
         </activity>
+        <activity android:name=".module.home.discover.AllAreasRankActivity">
+        </activity>
     </application>
 
 </manifest>
