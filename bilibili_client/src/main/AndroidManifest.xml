@@ -88,6 +88,10 @@
         </activity>
         <activity android:name=".module.home.discover.AllAreasRankActivity">
         </activity>
+        <activity android:name=".module.home.discover.TopicCenterActivity">
+        </activity>
+        <activity android:name=".module.home.discover.ActivityCenterActivity">
+        </activity>
     </application>
 
 </manifest>
