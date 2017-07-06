@@ -50,7 +50,7 @@ public class HeaderViewRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int headerCount = getHeaderCount();
-        if (position >= headerCount && position <= headerCount + getWrappedItemCount())
+        if (position >= headerCount && position < headerCount + mWrappedAdapter.getItemCount())
             mWrappedAdapter.onBindViewHolder(holder, position - headerCount);
     }
 

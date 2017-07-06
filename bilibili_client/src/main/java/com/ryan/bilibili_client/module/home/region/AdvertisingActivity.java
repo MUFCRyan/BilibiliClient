@@ -181,7 +181,7 @@ public class AdvertisingActivity extends RxBaseActivity {
     @Override
     public void finishTask() {
 
-        converBanner();
+        convertBanner();
         mSectionedRecyclerViewAdapter.addSection(new RegionRecommendBannerSection(mBannerEntities));
         mSectionedRecyclerViewAdapter.addSection(
                 new RegionRecommendHotSection(AdvertisingActivity.this, ConstantUtil.ADVERTISING_RID,
@@ -198,7 +198,7 @@ public class AdvertisingActivity extends RxBaseActivity {
     }
 
 
-    private void converBanner() {
+    private void convertBanner() {
 
         Observable.from(mBanners)
                 .compose(bindToLifecycle())
