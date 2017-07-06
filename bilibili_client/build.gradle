@@ -20,7 +20,7 @@ android {
 
     defaultConfig {
         applicationId "com.ryan.bilibili_client"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode props.getAt("versionCode") as int
         versionName props['versionName']

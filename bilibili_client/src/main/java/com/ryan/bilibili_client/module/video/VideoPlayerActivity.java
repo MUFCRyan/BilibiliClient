@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.ryan.bilibili_client.R;
 import com.ryan.bilibili_client.base.RxBaseActivity;
 import com.ryan.bilibili_client.utils.ConstantUtil;
 
@@ -18,7 +19,7 @@ public class VideoPlayerActivity extends RxBaseActivity {
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.activity_video_player;
     }
 
     @Override
