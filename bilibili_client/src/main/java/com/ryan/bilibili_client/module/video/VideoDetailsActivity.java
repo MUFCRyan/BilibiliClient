@@ -76,7 +76,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
 
     private List<String> titles = new ArrayList<>();
 
-    private int av;
+    private int mAv;
 
     private String imgUrl;
 
@@ -91,7 +91,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
     public void initViews(Bundle savedInstanceState) {
         Intent intent = getIntent();
         if (intent != null) {
-            av = intent.getIntExtra(ConstantUtil.EXTRA_AV, -1);
+            mAv = intent.getIntExtra(ConstantUtil.EXTRA_AV, -1);
             imgUrl = intent.getStringExtra(ConstantUtil.EXTRA_IMG_URL);
         }
         Glide.with(VideoDetailsActivity.this)
@@ -136,7 +136,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
         // 设置 StatusBar 透明
         SystemBarHelper.immersiveStatusBar(this);
         SystemBarHelper.setHeightAndPadding(this, mToolbar);
-        mAvText.setText("av" + av);
+        mAvText.setText("mAv" + mAv);
     }
 
     @Override
@@ -163,7 +163,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
     @Override
     public void loadData() {
         RetrofitHelper.getBiliAppAPI()
-                .getVideoDetails(av)
+                .getVideoDetails(mAv)
                 .compose(bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -181,16 +181,17 @@ public class VideoDetailsActivity extends RxBaseActivity {
         mFAB.setClickable(true);
         mFAB.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimary)));
         mCollapsingToolbarLayout.setTitle("");
-        if (!TextUtils.isEmpty(imgUrl))
-            Glide.with(VideoDetailsActivity.this)
+        if (TextUtils.isEmpty(imgUrl)){
+            Glide.with(this)
                     .load(mVideoDetailsInfo)
                     .centerCrop()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(R.drawable.bili_default_image_tv)
                     .dontAnimate()
                     .into(mVideoPreview);
-        VideoIntroductionFragment introductionFragment = VideoIntroductionFragment.newInstance();
-        VideoCommentFragment commentFragment = VideoCommentFragment.newInstance();
+        }
+        VideoIntroductionFragment introductionFragment = VideoIntroductionFragment.newInstance(mAv);
+        VideoCommentFragment commentFragment = VideoCommentFragment.newInstance(mAv);
         fragments.add(introductionFragment);
         fragments.add(commentFragment);
         setPagerTitle(String.valueOf(mVideoDetailsInfo.getStat().getReply()));
