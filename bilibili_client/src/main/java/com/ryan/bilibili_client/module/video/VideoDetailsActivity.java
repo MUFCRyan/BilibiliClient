@@ -74,11 +74,11 @@ public class VideoDetailsActivity extends RxBaseActivity {
 
     private List<Fragment> fragments = new ArrayList<>();
 
-    private List<String> titles = new ArrayList<>();
+    private List<String> mTitles = new ArrayList<>();
 
     private int mAv;
 
-    private String imgUrl;
+    private String mImgUrl;
 
     private VideoDetailsInfo.DataBean mVideoDetailsInfo;
 
@@ -92,10 +92,10 @@ public class VideoDetailsActivity extends RxBaseActivity {
         Intent intent = getIntent();
         if (intent != null) {
             mAv = intent.getIntExtra(ConstantUtil.EXTRA_AV, -1);
-            imgUrl = intent.getStringExtra(ConstantUtil.EXTRA_IMG_URL);
+            mImgUrl = intent.getStringExtra(ConstantUtil.EXTRA_IMG_URL);
         }
-        Glide.with(VideoDetailsActivity.this)
-                .load(UrlHelper.getClearVideoPreviewUrl(imgUrl))
+        Glide.with(this)
+                .load(UrlHelper.getClearVideoPreviewUrl(mImgUrl))
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(R.drawable.bili_default_image_tv)
@@ -136,7 +136,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
         // 设置 StatusBar 透明
         SystemBarHelper.immersiveStatusBar(this);
         SystemBarHelper.setHeightAndPadding(this, mToolbar);
-        mAvText.setText("mAv" + mAv);
+        mAvText.setText("av" + mAv);
     }
 
     @Override
@@ -181,7 +181,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
         mFAB.setClickable(true);
         mFAB.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimary)));
         mCollapsingToolbarLayout.setTitle("");
-        if (TextUtils.isEmpty(imgUrl)){
+        if (TextUtils.isEmpty(mImgUrl)){
             Glide.with(this)
                     .load(mVideoDetailsInfo)
                     .centerCrop()
@@ -198,9 +198,9 @@ public class VideoDetailsActivity extends RxBaseActivity {
     }
 
     private void setPagerTitle(String num) {
-        titles.add("简介");
-        titles.add("评论" + "(" + num + ")");
-        VideoDetailsPagerAdapter adapter = new VideoDetailsPagerAdapter(getSupportFragmentManager(), fragments, titles);
+        mTitles.add("简介");
+        mTitles.add("评论" + "(" + num + ")");
+        VideoDetailsPagerAdapter adapter = new VideoDetailsPagerAdapter(getSupportFragmentManager(), fragments, mTitles);
         mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(2);
         mSlidingTabLayout.setViewPager(mViewPager);
@@ -246,7 +246,7 @@ public class VideoDetailsActivity extends RxBaseActivity {
     }
 
     private void measureTabLayoutTextWidth(int position) {
-        String title = titles.get(position);
+        String title = mTitles.get(position);
         TextView titleView = mSlidingTabLayout.getTitleView(position);
         TextPaint paint = titleView.getPaint();
         float textWidth = paint.measureText(title);

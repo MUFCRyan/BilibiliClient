@@ -120,7 +120,7 @@ public class VideoHotCommentAdapter extends AbsRecyclerViewAdapter {
   @Override
   public int getItemCount() {
 
-    return hotComments.size() == 0 ? 0 : 3;
+    return hotComments.isEmpty() ? 0 : 3;
   }
 
 

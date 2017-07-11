@@ -104,7 +104,7 @@ public class VideoCommentFragment extends RxLazyFragment {
         int ver = 3;
         RetrofitHelper.getBiliAPI()
                 .getVideoComment(mAid, mPageNum, mPageSize, ver)
-                .compose(bindToLifecycle())
+                .compose(this.bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(videoCommentInfo -> {
@@ -128,7 +128,7 @@ public class VideoCommentFragment extends RxLazyFragment {
         mLoadMoreView.setVisibility(View.GONE);
         mVideoHotCommentAdapter.notifyDataSetChanged();
         if (mPageNum * mPageSize - mPageSize - 1 > 0)
-            mAdapter.notifyItemRangeChanged(mPageNum * mPageSize - mPageSize - 1, mPageNum);
+            mAdapter.notifyItemRangeChanged(mPageNum * mPageSize - mPageSize - 1, mPageSize);
         else
             mAdapter.notifyDataSetChanged();
     }
